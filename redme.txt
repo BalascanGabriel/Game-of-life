@@ -1,0 +1,27 @@
+
+
+							Game of life
+									Balascan Gabriel Danut 
+
+	1)Am folosit o structura de tip punct cu doua variabile de tip intreg x si y care contine coordonatele unui punct.
+
+	2)Am implementat o funcite inlocuitoare pentru atoi care transforma un sir de caractere intr-un intreg.
+
+	3)In cea de a treia functie "citireConfiguratie" se citeste fisierul input,fisierul de intrare,se verifica daca a fost deschis cu succes,apoi inauntrul acestuia se introduce nuamrul de linii si numarul de coloane si se aloca dinamic spatiu pentru acestea.Practic aici se citeste tabloul,configuratia,initiala.
+
+	4)In cea de a patra functie "numarVecini" se numara vecinii unui punct din tabloul de configuratie,situat pe linia x si coloana y.Tot aici sunt studiate si cazurile particulare in care punctul se afla la marginile sau in colturile tabloului.Functia returneaza numarul de vecini.
+
+	5)In cea de a cincea functie "generatiaUrmatoare" se modifica configuratia,pregatindu-se pentru generatia urmatoare.Se foloseste un tablou alocat dinamic de tip punct,care retine coordonatele punctelor ce urmeaza sa fie modificate.La sfarsit folosim formula configuratiei[modificari.x][modificari.y]=abs(configuratie[modificari.x][modificari.y]-1).
+
+	6)In cea de a sasea functie "creareConfiguratieFinala" practic se construieste fiserul output,de iesire,in care se va scrie continutul tabloului configuratie dat ca parametru la functie.
+
+	7)IN MAIN.Prin parametrii functiei main "argc "si "argv "intelegem:
+					argc=argument count
+					argv=argument vector
+				practic argv[0] va fi numele programului
+				iar argc numara argumentele date in terminal
+		Practic se parcurge vectorul de la 0 la numarul de argumente iar apoi:
+			->daca argv[i]=="-in" va rezulta ca argv[i+1] va fi numele fisierului de intrare
+			->analog pentru "-out" si "steps"
+			->pentru "-super_dinamic" si "-comprimat" daca argv[i]="-super_dinamic" respectiv ulterior "-comprimat" rezulta ca va trebui sa se indeplineasca proprietea indicata,respectiv pentru prima conditie "-super_dinamic" si pentru a doua "-comprimat"
+		Tot ce se intampla mai apoi reprezinta apelarea funtiilor mai sus definite si eliberarea memoriei.
